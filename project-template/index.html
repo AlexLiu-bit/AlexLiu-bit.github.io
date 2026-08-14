@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<!-- =========================================================================
+     PER-PAPER PROJECT PAGE TEMPLATE
+
+     Copy this whole folder (index.html + css/ + js/ + img/) once per paper,
+     rename it to something short like ../my-paper-name/, then fill in the
+     [TODO]s below. Link to it from the main page's publication row.
+
+     Everything marked [TODO] must be edited. The og:/twitter: meta tags need
+     ABSOLUTE urls or the social preview card will not render.
+     ========================================================================= -->
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>[TODO] Project Name</title>
+
+    <meta name="description" content="[TODO] One-sentence summary of the paper.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alexliu-bit.github.io/project-template/" />
+    <meta property="og:title" content="[TODO] Full Paper Title" />
+    <meta property="og:description" content="[TODO] Paste your abstract, or a shortened version of it, here." />
+    <meta property="og:image" content="https://alexliu-bit.github.io/project-template/img/teaser.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1296">
+    <meta property="og:image:height" content="840">
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[TODO] Full Paper Title" />
+    <meta name="twitter:description" content="[TODO] Paste your abstract, or a shortened version of it, here." />
+    <meta name="twitter:image" content="https://alexliu-bit.github.io/project-template/img/teaser.jpg" />
+
+    <!-- Tab icon. Swap the emoji for one that suits the paper. -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📄</text></svg>">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/video_comparison.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+
+        <!-- ---------- Title ---------- -->
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                <b>[TODO] Project Name</b>: Subtitle of Your Paper</br>
+                <small>
+                [TODO] Venue, Year (Oral / Spotlight / Highlight, if applicable)
+                </small>
+            </h2>
+        </div>
+
+        <!-- ---------- Authors ---------- -->
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://alexliu-bit.github.io/">
+                          Alex Liu
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                          [TODO] Coauthor One
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                          [TODO] Coauthor Two
+                        </a>
+                    </li>
+                    </br>[TODO] Institution
+                </ul>
+            </div>
+        </div>
+
+        <!-- ---------- Link buttons ----------
+             Delete any pill you don't need; the row re-spaces itself. -->
+        <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="#">
+                            <image src="img/paper_icon.png" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <image src="img/youtube_icon.png" height="60px">
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <image src="img/database_icon.png" height="60px">
+                                <h4><strong>Data</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+        <!-- ---------- Teaser video ----------
+             Swap for a still <img src="img/teaser.jpg"> if you have no video. -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <video id="teaser" width="100%" autoplay loop muted playsinline controls>
+                  <source src="img/teaser.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+
+        <!-- ---------- Abstract ---------- -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    [TODO] Paste your abstract here.
+                </p>
+            </div>
+        </div>
+
+        <!-- ---------- YouTube embed ----------
+             Replace VIDEO_ID with the id from the youtube url. Delete the whole
+             block if you have no video. -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Video
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://youtube.com/embed/VIDEO_ID" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+<br>
+
+        <!-- ---------- Interactive before/after slider ----------
+             Powered by js/video_comparison.js (by Dor Verbin).
+
+             IMPORTANT: the source video must be SIDE BY SIDE -- left half is
+             shown left of the slider, right half is shown right of it. So a
+             clip that displays at 640x360 must be encoded at 1280x360. Build
+             one with:
+               ffmpeg -i left.mp4 -i right.mp4 -filter_complex hstack out.mp4
+
+             To add a second slider on this page, duplicate the <video>+<canvas>
+             pair and give it a new id; the canvas id must be the video id with
+             "Merge" appended. -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    [TODO] Comparison
+                </h3>
+                <video class="video" width=100% id="comparison" loop playsinline autoplay muted src="img/comparison.mp4" onplay="resizeAndPlay(this)"></video>
+                <canvas height=0 class="videoMerge" id="comparisonMerge"></canvas>
+                <p class="text-justify">
+                    [TODO] Describe what the reader is comparing. Drag across the
+                    video to move the divider.
+                </p>
+            </div>
+        </div>
+
+        <!-- ---------- A plain results section ----------
+             Duplicate this block for each extra figure or result. -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    [TODO] Results
+                </h3>
+                <img src="img/teaser.jpg" width="100%" alt="results figure">
+                <p class="text-justify">
+                    [TODO] Explain the figure.
+                </p>
+            </div>
+        </div>
+
+        <!-- ---------- Citation ----------
+             js/app.js renders this textarea with CodeMirror. Keep the id="bibtex". -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly>
+@article{liu2026projectname,
+    title={[TODO] Full Paper Title},
+    author={Alex Liu and Coauthor One and Coauthor Two},
+    journal={[TODO] Venue},
+    year={2026}
+}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- ---------- Acknowledgements ---------- -->
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                    [TODO] Thank the people who helped.
+                    <br><br>
+                    The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> and <a href="https://dorverbin.github.io/refnerf">Ref-NeRF</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
