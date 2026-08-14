@@ -158,201 +158,122 @@
 
           <!-- ============================================================
                PUBLICATIONS
-               Each paper is ONE <tr> in the table below, newest first.
-               Three row templates follow -- copy whichever fits.
+               One .pub block per paper, in the order they appear on the CV.
+               `*` after an author marks equal contribution.
+
+               The thumbnail row templates the site started with were dropped
+               here -- there are no per-paper images, and 15 grey placeholders
+               read worse than a clean list. `git show 3f99e92:index.html`
+               brings them back if a paper ever gets a figure worth showing.
                ============================================================ -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2 class="section-title">Publications</h2>
+                <div class="pubs">
+                  <div class="pub">
+                    <div class="pub-title">Enabling Robust Cloth Manipulation via Inference-Time Simulator-in-the-Loop Refinement</div>
+                    <div class="pub-authors"><strong>X. Liu</strong>*, Y. Li*, Z. Li, P. Jing, Z. Huang, B. Zhou, Z. Zeng, S. Luo, C. Qi, F. Shi</div>
+                    <div class="pub-venue">2026</div>
+                    <div class="pub-links"><a href="https://silr-cloth.github.io/">website</a> / <a href="https://arxiv.org/abs/2606.24552">paper</a></div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title"><strong>FLASH</strong>: Fast Learning via GPU-Accelerated Simulation for High-Fidelity Deformable Manipulation in Minutes</div>
+                    <div class="pub-authors">S. Luo*, B. Zhou*, C. Zhang*, <strong>X. Liu</strong>, Z. Huang, G. Yang, Z. Han, X. Hu, E. Yang, R. Yu, Z. Zeng, F. Shi</div>
+                    <div class="pub-venue">2026</div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2604.17513">paper</a></div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title"><strong>MLM</strong>: Learning Multi-task Loco-Manipulation Whole-Body Control for Quadruped Robot with Arm</div>
+                    <div class="pub-authors"><strong>X. Liu</strong>, B. Ma, C. Qi, Y. Ding et al.</div>
+                    <div class="pub-venue"><em>IEEE Robotics and Automation Letters (RA-L)</em>, 2026</div>
+                    <div class="pub-links"><a href="https://www.bilibili.com/video/BV1AVbJz7EMN/">video</a> / <a href="https://arxiv.org/abs/2508.10538">paper</a></div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title">Skill latent space based multi-gait learning for a legged robot</div>
+                    <div class="pub-authors"><strong>X. Liu</strong>*, J. Z. Wu*, Y. F. Xue, C. K. Qi, G. Y. Xin, and F. Gao</div>
+                    <div class="pub-venue"><em>IEEE Transactions on Industrial Electronics (TIE)</em>, 2025</div>
+                    <div class="pub-links"><a href="https://www.youtube.com/watch?v=nCwMzwC316M">video</a> / <a href="https://ieeexplore.ieee.org/document/10612828">paper</a></div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title">Learning natural and robust hexapod locomotion over complex terrains via motion priors based on deep reinforcement learning</div>
+                    <div class="pub-authors"><strong>X. Liu</strong>, J. Z. Wu, Y. H. Li, C. K. Qi, Y. F. Xue, and F. Gao</div>
+                    <div class="pub-venue"><em>IROS</em>, 2025</div>
+                    <div class="pub-links"><a href="https://www.youtube.com/watch?v=ZpLelZVmxHQ">video</a> / <a href="https://arxiv.org/abs/2511.03167">paper</a></div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title"><strong>FastUMI</strong>: A Scalable and Hardware-Independent Universal Manipulation Interface with Dataset</div>
+                    <div class="pub-authors">Zhaxizhuoma*, K. Liu*, C. Guan*, Z. Jia*, Z. Wu*, <strong>X. Liu</strong>*, T. Wang, S. Liang, P. Chen et al.</div>
+                    <div class="pub-venue"><em>CoRL</em>, 2025</div>
+                    <div class="pub-links"><a href="https://fastumi.com/">website</a> / <a href="https://arxiv.org/abs/2409.19499">paper</a></div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title"><strong>FastUMI-100K</strong>: Advancing Data-driven Robotic Manipulation with a Large-scale UMI-style Dataset</div>
+                    <div class="pub-authors">K. Liu, Z. Jia, Y. Li, P. Chen, S. Liu, <strong>X. Liu</strong>, P. Zhang, H. Song et al.</div>
+                    <div class="pub-venue">2025</div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title"><strong>PPL</strong>: Point Cloud Supervised Proprioceptive Locomotion Reinforcement Learning for Legged Robots in Crawl Spaces</div>
+                    <div class="pub-authors">B. Ma, N. Xu, C. Qi, <strong>X. Liu</strong>, Y. Mo, J. Wang, and C. Lu</div>
+                    <div class="pub-venue"><em>IEEE Robotics and Automation Letters (RA-L)</em>, 2026</div>
+                    <div class="pub-links"><a href="https://www.bilibili.com/video/BV1gmbvzuEuW/">video</a> / <a href="https://arxiv.org/abs/2508.09950">paper</a></div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title">Experience-Learning Inspired Two-Step Reward Method for Efficient Legged Locomotion Learning towards Natural and Robust Gaits</div>
+                    <div class="pub-authors">Y. H. Li, J. Z. Wu, <strong>X. Liu</strong>, W. Z. Guo, and Y. F. Xue</div>
+                    <div class="pub-venue"><em>IROS</em>, 2024</div>
+                    <div class="pub-links"><a href="https://arxiv.org/abs/2401.12389">paper</a></div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title">Learning Graphic Convolutional Network Based Quadruped Locomotion on Complex Terrain</div>
+                    <div class="pub-authors">X. Li, A. Li, <strong>X. Liu</strong>, Y. Xue, X. Xu, C. Qi</div>
+                    <div class="pub-venue"><em>CAC</em>, 2024</div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title">A Motion-Adaptive Parallax-Based Monocular Visual Odometry</div>
+                    <div class="pub-authors">Z. Xu, <strong>X. Liu</strong>, C. Qi</div>
+                    <div class="pub-venue"><em>CCC</em>, 2023</div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title">An actuation acceleration based kinematic modeling and parameter identification approach for a six-DOF 6-PSU parallel robot with joint clearances</div>
+                    <div class="pub-authors"><strong>X. Liu</strong>, C. K. Qi, J. F. Lin, D. J. Li, and F. Gao</div>
+                    <div class="pub-venue"><em>ASME Journal of Mechanisms and Robotics (ASME JMR)</em>, 2025</div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title">Multi-input multi-output sliding mode control with high precision and robustness for a 6-PSU parallel robot</div>
+                    <div class="pub-authors"><strong>X. Liu</strong>, J. F. Lin, D. J. Li, C. K. Qi, and F. Gao</div>
+                    <div class="pub-venue"><em>ICIRA</em>, 2023</div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title">Modeling and identification of kinematic model with joint clearance for a 6-PSU parallel manipulator</div>
+                    <div class="pub-authors"><strong>X. Liu</strong>, C. K. Qi, J. F. Lin, D. J. Li, and F. Gao</div>
+                    <div class="pub-venue"><em>CCC</em>, 2023</div>
+                  </div>
+                  <div class="pub">
+                    <div class="pub-title">A modeling method for a 6-SPS perpendicular parallel micro-manipulation robot considering the motion in multiple nonfunctional directions and nonlinear hysteresis</div>
+                    <div class="pub-authors">C. K. Qi, J. F. Lin, <strong>X. Liu</strong>, F. Gao, Y. Yue, Y. Hu, and B. C. Wei</div>
+                    <div class="pub-venue"><em>Journal of Mechanical Design, vol. 145, no. 5, pp. 053301</em>, 2023</div>
+                  </div>
+</div>
+                <p class="pub-note">* denotes equal contribution.</p>
               </td>
             </tr>
-          </tbody></table>
-
-          <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
-
-<!-- ###########################################################################
-     TEMPLATE A -- static thumbnail, no hover effect. The simplest option;
-     use it when you have no animation to show.
-
-     To reuse: copy this whole <tr>...</tr> and swap the image, title,
-     authors, venue, links, and summary. Keep class="thumb" on the <img> --
-     that is what the mobile rule in stylesheet.css resizes.
-     ########################################################################### -->
-<tr>
-  <td style="padding:16px;width:20%;vertical-align:middle">
-    <img class="thumb" src="images/paper1.jpg" alt="paper 1 thumbnail" width="160" height="160" style="border-style: none">
-  </td>
-  <td style="padding:8px;width:80%;vertical-align:middle">
-    <a href="#">
-      <span class="papertitle">[TODO] Title of Your First Paper</span>
-    </a>
-    <br>
-    <strong>Alex Liu</strong>,
-    <a href="#">Coauthor One</a>,
-    <a href="#">Coauthor Two</a>
-    <br>
-    <em>Venue</em>, 2026
-    <br>
-    <a href="#">project page</a> /
-    <a href="#">arXiv</a> /
-    <a href="#">code</a> /
-    <a href="#">bibtex</a>
-    <p></p>
-    <p>
-      [TODO] One or two sentences on what the paper does. Write it for someone
-      skimming: lead with the result, not the setup.
-    </p>
-  </td>
-</tr>
-
-
-<!-- ###########################################################################
-     TEMPLATE B -- two images that cross-fade on hover (a "before/after" swap).
-
-     To reuse: copy this whole <tr>...</tr>, then replace EVERY occurrence of
-     the short name `paper2` with your own short name. There are 7:
-       1. onmouseout="paper2_stop()"        (on the <tr>)
-       2. onmouseover="paper2_start()"      (on the <tr>)
-       3. id='paper2_image'                 (on the overlay div)
-       4. function paper2_start()           (script)
-       5. getElementById('paper2_image')    (inside _start)
-       6. function paper2_stop()            (script)
-       7. getElementById('paper2_image')    (inside _stop)
-       ...plus the bare paper2_stop() call that sets the initial state.
-     The overlay (`.two`) is the image shown ON HOVER; the one below it is the
-     resting state. Both should be 160x160.
-     ########################################################################### -->
-<tr onmouseout="paper2_stop()" onmouseover="paper2_start()">
-  <td style="padding:16px;width:20%;vertical-align:middle">
-    <div class="one">
-      <div class="two" id='paper2_image'>
-        <img src='images/paper2_after.jpg' alt="paper 2 thumbnail, hover state" width=100%>
-      </div>
-      <img src='images/paper2_before.jpg' alt="paper 2 thumbnail" width=100%>
-    </div>
-    <script type="text/javascript">
-      function paper2_start() {
-        document.getElementById('paper2_image').style.opacity = "1";
-      }
-
-      function paper2_stop() {
-        document.getElementById('paper2_image').style.opacity = "0";
-      }
-      paper2_stop()
-    </script>
-  </td>
-  <td style="padding:8px;width:80%;vertical-align:middle">
-    <a href="#">
-      <span class="papertitle">[TODO] Title of Your Second Paper</span>
-    </a>
-    <br>
-    <a href="#">Coauthor One</a>,
-    <strong>Alex Liu</strong>,
-    <a href="#">Coauthor Two</a>
-    <br>
-    <em>Venue</em>, 2025
-    <br>
-    <a href="#">project page</a> /
-    <a href="#">arXiv</a> /
-    <a href="#">bibtex</a>
-    <p></p>
-    <p>
-      [TODO] One or two sentences on what the paper does. Hover the thumbnail to
-      see the cross-fade this template gives you &mdash; it works well for
-      before/after comparisons.
-    </p>
-  </td>
-</tr>
-
-
-<!-- ###########################################################################
-     TEMPLATE C -- static thumbnail that fades into a looping video on hover.
-     Best for anything with motion (renders, trajectories, training curves).
-
-     To reuse: same rename procedure as Template B (replace `paper3` throughout).
-     Keep the video muted+autoplay+loop, and keep it SMALL -- these all load on
-     page open, so a 160x160 clip under ~200KB is the right target. Encode with:
-       ffmpeg -i in.mov -vf scale=160:160 -c:v libx264 -pix_fmt yuv420p -crf 30 out.mp4
-     ########################################################################### -->
-<tr onmouseout="paper3_stop()" onmouseover="paper3_start()">
-  <td style="padding:16px;width:20%;vertical-align:middle">
-    <div class="one">
-      <div class="two" id='paper3_image'>
-        <video width=100% height=100% muted autoplay loop playsinline>
-          <source src="images/paper3.mp4" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <img src='images/paper3.jpg' alt="paper 3 thumbnail" width="160">
-    </div>
-    <script type="text/javascript">
-      function paper3_start() {
-        document.getElementById('paper3_image').style.opacity = "1";
-      }
-
-      function paper3_stop() {
-        document.getElementById('paper3_image').style.opacity = "0";
-      }
-      paper3_stop()
-    </script>
-  </td>
-  <td style="padding:8px;width:80%;vertical-align:middle">
-    <a href="project-template/index.html">
-      <span class="papertitle">[TODO] Title of Your Third Paper</span>
-    </a>
-    <br>
-    <strong>Alex Liu</strong>,
-    <a href="#">Coauthor One</a>
-    <br>
-    <em>Venue</em>, 2025
-    <br>
-    <a href="project-template/index.html">project page</a> /
-    <a href="#">arXiv</a> /
-    <a href="#">bibtex</a>
-    <p></p>
-    <p>
-      [TODO] One or two sentences on what the paper does. This row's title links
-      to the bundled project-page template so you can see how a per-paper page
-      hangs off the site.
-    </p>
-  </td>
-</tr>
-
-
           </tbody></table>
 
           <!-- ============================================================
                OPTIONAL SECTIONS
-
-               Talks / Academic Service / Teaching were removed to keep the
-               starting page lean. To bring any of them back, uncomment the
-               block below and duplicate the <tr> per section.
-
-               Colors used by the original template, if you want more than one
-               section and would like them to stay visually distinct:
-                 #fcb97d (orange)  #aaba9e (sage)
-                 #c6b89e (tan)     #edd892 (yellow)   #a8d0e6 (blue, = News)
+               Talks / Academic Service / Teaching, if any of them ever earn a
+               place. Uncomment and fill in; the markup matches Experience,
+               News and Publications so a new section needs no new CSS. The
+               CV already lists reviewing for TRO, TIE, RA-L, CoRL, ICRA and
+               IROS, which is the obvious first candidate.
                ============================================================ -->
           <!--
-          <table style="width:100%; margin:0 auto; border:0; border-spacing:0; padding:16px;"><tbody>
-            <tr>
-              <td>
-                <h2>Miscellanea</h2>
-              </td>
-            </tr>
-          </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
-              <td align="center" style="padding:16px;width:20%;vertical-align:middle">
-                <div class="colored-box" style="background-color: #aaba9e;">
-                  <h2>Talks</h2>
-                </div>
-              </td>
-              <td style="padding:8px;width:80%;vertical-align:middle">
-                <a href="#">Talk title, venue, year</a><br>
-                <a href="#">Talk title, venue, year</a>
+              <td style="padding:16px;width:100%;vertical-align:middle">
+                <h2 class="section-title">Academic Service</h2>
+                <p>Reviewer for TRO, TIE, RA-L, CoRL, ICRA, IROS.</p>
               </td>
             </tr>
           </tbody></table>

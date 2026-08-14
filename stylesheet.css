@@ -132,6 +132,32 @@ h2 {
   color: #999;
 }
 
+/* Publications. Four stacked lines per entry -- title, authors, venue, links --
+   with the gap between entries larger than any gap inside one, so the list
+   groups by eye without needing rules or bullets to separate the entries. */
+.pubs {
+  margin-top: 2px;
+}
+
+.pub {
+  margin-bottom: 17px;
+}
+
+.pub-title {
+  font-weight: 700;
+  color: #000;
+}
+
+.pub-venue {
+  color: #555;
+}
+
+.pub-note {
+  color: #999;
+  font-size: 13px;
+  margin: 20px 0 0;
+}
+
 .news {
   margin: 0;
   padding: 0;
@@ -157,12 +183,6 @@ h2 {
   color: #999;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
-}
-
-.papertitle {
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 700;
 }
 
 /* The name. English is bold serif, Chinese sits at regular weight beside it so
@@ -241,53 +261,12 @@ h2 {
   top: var(--portrait-offset);
 }
 
-.one {
-  width: 160px;
-  height: 160px;
-  position: relative;
-}
-
-.two {
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
-}
-
-.fade {
-  transition: opacity .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out;
-  -webkit-transition: opacity .2s ease-in-out;
-}
-
-.colored-box {
-    color: black;
-    padding: 20px;
-    display: inline-block;
-    border-radius: 10px;
-}
-
 /* Narrow screens. Without this the fixed 160px thumbnails squeeze the text
    column of each publication row down to roughly 45% of the viewport, leaving
    4-5 words per line. Shrinks the thumbnails and tightens the inline padding
    (hence !important -- the padding is set inline on every <td>).
    Nothing here applies above 600px, so the desktop layout is unchanged. */
 @media (max-width: 600px) {
-  .one,
-  .two {
-    width: 104px;
-    height: 104px;
-  }
-
-  .one img,
-  .one video,
-  img.thumb {
-    width: 104px;
-    height: 104px;
-  }
-
   td {
     padding: 8px !important;
   }
@@ -312,7 +291,4 @@ h2 {
     border-top: 1px solid #e7e7e7;
   }
 
-  .colored-box {
-    padding: 10px;
   }
-}
