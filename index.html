@@ -6,7 +6,7 @@
     <title>Alex Liu</title>
 
     <meta name="author" content="Alex Liu">
-    <meta name="description" content="[TODO] One-line description of you, e.g. 'PhD student at X University working on Y.' This text is what search engines show under your page title.">
+    <meta name="description" content="Ph.D. student at Shanghai Jiao Tong University working on reinforcement learning and embodied AI.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Social preview cards (shown when the page is shared on X / LinkedIn / Slack).
@@ -14,17 +14,32 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://alexliu-bit.github.io/">
     <meta property="og:title" content="Alex Liu">
-    <meta property="og:description" content="[TODO] Same one-line description as the meta description above.">
+    <meta property="og:description" content="Ph.D. student at Shanghai Jiao Tong University working on reinforcement learning and embodied AI.">
     <meta property="og:image" content="https://alexliu-bit.github.io/images/profile.jpg">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Alex Liu">
-    <meta name="twitter:description" content="[TODO] Same one-line description as the meta description above.">
+    <meta name="twitter:description" content="Ph.D. student at Shanghai Jiao Tong University working on reinforcement learning and embodied AI.">
     <meta name="twitter:image" content="https://alexliu-bit.github.io/images/profile.jpg">
 
     <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+
+    <!-- Fonts. preconnect saves a round-trip on the font fetch.
+         Source Sans 3 = body text, Source Serif 4 = the English name. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:opsz,wght@8..60,700&display=swap">
+
+    <!-- Noto Serif SC (思源宋体) for the Chinese name, subsetted to exactly the
+         characters used via `text=`: %E5%88%98%E9%91%AB is 刘鑫. That is a 1.4KB
+         download; the unsubsetted family ships ~120 unicode-range slices and
+         30KB of CSS before a single glyph arrives.
+         IF THE CHINESE NAME CHANGES, update the `text=` value to match, or the
+         new characters will silently fall back to a system font. -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&text=%E5%88%98%E9%91%AB&display=swap">
+
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
   </head>
@@ -41,27 +56,34 @@
             <tr style="padding:0px">
               <td style="padding:2.5%;width:63%;vertical-align:middle">
                 <p class="name" style="text-align: center;">
-                  Alex Liu
+                  <span class="name-en">Xin Liu</span><span
+                    class="name-divider">|</span><span class="name-cn">刘 鑫</span>
                 </p>
                 <p>
-                  [TODO] I'm a <em>[your role]</em> at <a href="#">[your institution]</a>, where I work on <em>[your research area]</em>.
-                  My research focuses on [one sentence on what problem you care about and why].
-                  Previously I [earlier position, internship, or degree], advised by <a href="#">[advisor name]</a>.
+                  I am a fourth-year Ph.D. student at Shanghai Jiao Tong University (SJTU), advised by Prof. Chenkun Qi.
+                  My research focuses on reinforcement learning and embodied AI.
                 </p>
                 <p>
-                  [TODO] Optional second paragraph &mdash; awards, what you're currently looking for, or anything you want a visitor to know in the first ten seconds. Delete this paragraph if you don't need it.
+                  I was fortunate to spend time as a visiting Ph.D. student at the
+                  <a href="https://nus-hcrl.github.io/">Human-Centered Robotic Lab</a>,
+                  National University of Singapore (NUS), advised by
+                  <a href="https://fanshi14.github.io/me/">Prof. Fan Shi</a>.
+                  I also carried out research at Shanghai AI Laboratory, collaborating with
+                  <a href="https://yding25.com/">Yan Ding</a> and Bin Zhao.
                 </p>
                 <p style="text-align:center">
-                  <a href="mailto:you@example.com">Email</a> &nbsp;/&nbsp;
-                  <a href="data/CV.pdf">CV</a> &nbsp;/&nbsp;
-                  <a href="https://scholar.google.com/citations?user=TODO">Scholar</a> &nbsp;/&nbsp;
-                  <a href="https://github.com/AlexLiu-bit">Github</a> &nbsp;/&nbsp;
-                  <a href="https://x.com/TODO">X</a> &nbsp;/&nbsp;
-                  <a href="https://www.linkedin.com/in/TODO">LinkedIn</a>
+                  <a href="mailto:xliu23t@gmail.com">Email</a> &nbsp;/&nbsp;
+                  <a href="data/Xin Liu-CV.pdf">CV</a> &nbsp;/&nbsp;
+                  <a href="https://scholar.google.com/citations?user=Kl_X8GoAAAAJ">Google Scholar</a> &nbsp;/&nbsp;
+                  <a href="https://www.linkedin.com/in/xin-liu-9533243a7/">LinkedIn</a>
                 </p>
               </td>
               <td style="padding:2.5%;width:37%;max-width:37%">
-                <a href="images/profile.jpg"><img style="width:100%;max-width:100%;object-fit: cover; border-radius: 50%;" alt="profile photo" src="images/profile.jpg"></a>
+                <!-- src is the 800px web copy; the link opens the untouched original.
+                     No width/height attributes: in an auto-layout table they set the
+                     column's min-content width to the image's pixel width and blow the
+                     layout apart. .portrait's aspect-ratio reserves the space instead. -->
+                <a href="images/profile-full.jpg"><img class="portrait" alt="profile photo" src="images/profile.jpg"></a>
               </td>
             </tr>
           </tbody></table>
