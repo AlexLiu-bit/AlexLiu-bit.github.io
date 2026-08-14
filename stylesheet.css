@@ -8,7 +8,8 @@
               SimSun. Source Sans / Source Serif and 思源黑体 / 思源宋体 are the
               same type family, so mixed CN-EN lines stay optically even.
 
-   Both webfont families are pulled in by the <link> in index.html's <head>.
+   All three families are self-hosted in fonts/ and declared in fonts/fonts.css,
+   which index.html links ahead of this file. Nothing loads from Google.
 
    Fallback order matters: the generic keyword (sans-serif / serif) must come
    LAST -- it always matches, so anything listed after it is unreachable. */
