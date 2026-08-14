@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="116" fill="#0b1220"/>
+  <g transform="translate(256,256)">
+    <g transform="translate(16,14)" fill="#1772d0" opacity="0.9">
+      <polygon points="-176,-208 -76,-208 176,208 76,208"/>
+      <polygon points="76,-208 176,-208 -76,208 -176,208"/>
+    </g>
+    <g fill="#ffffff">
+      <polygon points="-176,-208 -76,-208 176,208 76,208"/>
+      <polygon points="76,-208 176,-208 -76,208 -176,208"/>
+    </g>
+  </g>
+</svg>
