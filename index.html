@@ -28,7 +28,7 @@
 
     <!-- Fonts are served from this repo, not fonts.googleapis.com, which is
          unreachable from mainland China. See fonts/fonts.css. -->
-    <link rel="preload" href="fonts/inter-latin-n.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/source-sans-3-latin-n.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" type="text/css" href="fonts/fonts.css">
 
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -80,6 +80,60 @@
           </tbody></table>
 
           <!-- ============================================================
+               EXPERIENCE
+               One .exp block per position, newest first. The columns divide
+               the row evenly however many there are, so adding a fourth needs
+               no CSS change, though past four they get cramped on a laptop.
+
+               Logos live in images/logos/. Use transparent PNG or SVG and let
+               .exp-logo's height do the sizing rather than baking a size into
+               the file; an entry whose mark needs more room can override with
+               style="--exp-logo-h: 66px" on its <img>.
+
+               Give an SVG a .svg extension. Browsers sniff PNG/WebP/JPEG out
+               of a wrong extension, but never SVG -- served as image/png it
+               fails to decode and renders as a broken image.
+               ============================================================ -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:16px;width:100%;vertical-align:middle">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience">
+
+                  <div class="exp">
+                    <div class="exp-logo-row">
+                      <!-- Wide, short wordmark: at the shared 44px it runs 154px across and
+                           dwarfs the square marks beside it. Sized down to match by width. -->
+                      <img class="exp-logo" style="--exp-logo-h: 30px" src="images/logos/sudo.svg" alt="sudo logo">
+                    </div>
+                    <div class="exp-org">sudo</div>
+                    <div class="exp-date">2026</div>
+                  </div>
+
+                  <div class="exp">
+                    <div class="exp-logo-row">
+                      <img class="exp-logo" src="images/logos/gradient.png" alt="Gradient Network logo">
+                    </div>
+                    <div class="exp-org">Gradient Network</div>
+                    <div class="exp-date">2025 - 2026</div>
+                  </div>
+
+                  <div class="exp">
+                    <!-- This mark carries two lines of type under the graphic, so it needs
+                         more height than a plain wordmark to stay legible. -->
+                    <div class="exp-logo-row">
+                      <img class="exp-logo" style="--exp-logo-h: 66px" src="images/logos/shanghai-ai-lab.png" alt="Shanghai AI Laboratory logo">
+                    </div>
+                    <div class="exp-org">Shanghai AI Laboratory</div>
+                    <div class="exp-date">2024 - 2025</div>
+                  </div>
+
+                </div>
+              </td>
+            </tr>
+          </tbody></table>
+
+          <!-- ============================================================
                NEWS
                Newest first. Keep this list short (5-8 items) and prune the
                tail as it grows -- a stale news list reads worse than none.
@@ -89,24 +143,11 @@
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2 class="section-title">News</h2>
                 <ul class="news">
-                  <li><span class="news-date">2026-08</span> [TODO] Paper accepted to [venue].</li>
-                  <li><span class="news-date">2026-05</span> [TODO] Started an internship at [place].</li>
-                  <li><span class="news-date">2026-01</span> [TODO] Released code for [project].</li>
+                  <li><span class="news-date">2025-10</span> &#127881; Our paper MLM is accepted to IEEE RA-L.</li>
+                  <li><span class="news-date">2025-08</span> &#127881; Our paper FastUMI is accepted to CoRL 2025.</li>
+                  <li><span class="news-date">2025-02</span> &#127881; Our paper is accepted to IROS 2025.</li>
+                  <li><span class="news-date">2024-07</span> &#127881; Our paper is accepted to IEEE TIE.</li>
                 </ul>
-              </td>
-            </tr>
-          </tbody></table>
-
-          <!-- ============================================================
-               RESEARCH
-               ============================================================ -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-              <td style="padding:16px;width:100%;vertical-align:middle">
-                <h2>Research</h2>
-                <p>
-                  [TODO] I'm interested in [field one], [field two], and [field three]. Most of my research is about [the through-line that connects your papers]. Some papers are <span class="highlight">highlighted</span>.
-                </p>
               </td>
             </tr>
           </tbody></table>
@@ -115,10 +156,15 @@
                PUBLICATIONS
                Each paper is ONE <tr> in the table below, newest first.
                Three row templates follow -- copy whichever fits.
-
-               To highlight a paper, add bgcolor="#ffffd0" to its <tr>
-               (matches the span.highlight color used in the Research blurb).
                ============================================================ -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+              <td style="padding:16px;width:100%;vertical-align:middle">
+                <h2 class="section-title">Publications</h2>
+              </td>
+            </tr>
+          </tbody></table>
+
           <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
 
@@ -160,7 +206,6 @@
 
 <!-- ###########################################################################
      TEMPLATE B -- two images that cross-fade on hover (a "before/after" swap).
-     This row is also marked as highlighted via bgcolor="#ffffd0".
 
      To reuse: copy this whole <tr>...</tr>, then replace EVERY occurrence of
      the short name `paper2` with your own short name. There are 7:
@@ -175,7 +220,7 @@
      The overlay (`.two`) is the image shown ON HOVER; the one below it is the
      resting state. Both should be 160x160.
      ########################################################################### -->
-<tr onmouseout="paper2_stop()" onmouseover="paper2_start()" bgcolor="#ffffd0">
+<tr onmouseout="paper2_stop()" onmouseover="paper2_start()">
   <td style="padding:16px;width:20%;vertical-align:middle">
     <div class="one">
       <div class="two" id='paper2_image'>

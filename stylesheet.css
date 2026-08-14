@@ -1,6 +1,6 @@
 /* Typography
    ----------
-   Latin   -- Inter for body text, Source Serif 4 for the name.
+   Latin   -- Source Sans 3 for body text, Source Serif 4 for the name.
    Chinese -- Noto Serif SC (思源宋体) for the name. Body Chinese deliberately
               uses whatever the reader's OS ships (PingFang SC on macOS,
               Microsoft YaHei on Windows, Noto Sans CJK on Linux) rather than a
@@ -13,7 +13,7 @@
    Fallback order matters: the generic keyword (sans-serif / serif) must come
    LAST -- it always matches, so anything listed after it is unreachable. */
 :root {
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  --font-sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
     'Noto Sans CJK SC', 'Noto Sans SC', sans-serif;
   --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
@@ -63,6 +63,73 @@ h2 {
   padding-bottom: 7px;
   margin-bottom: 14px;
   border-bottom: 1px solid #e7e7e7;
+}
+
+/* Experience: equal columns split by hairline rules. flex:1 with a 0 basis so
+   the columns stay equal regardless of how long each role description is --
+   with the default auto basis, "Scene Generation / World Model" would claim a
+   wider column than "3D Avatar". */
+.experience {
+  display: flex;
+  align-items: stretch;
+}
+
+.exp {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 4px 18px 2px;
+  text-align: center;
+}
+
+.exp + .exp {
+  border-left: 1px solid #e7e7e7;
+}
+
+/* Height, not width, is what makes a row of logos look even -- the marks have
+   wildly different aspect ratios, and matching their widths would make a wide
+   wordmark tower over a square one. Equal height is only a starting point
+   though: a mark carrying a line of type reads smaller than a bare glyph at
+   the same height, so any entry can override with
+   style="--exp-logo-h: 66px" on its <img>. */
+.exp-logo {
+  height: var(--exp-logo-h, 44px);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin-bottom: 14px;
+}
+
+/* A fixed-height band every logo is centred inside, both ways. The fixed height
+   is what keeps the org names on one line across columns -- otherwise a taller
+   logo pushes its own name down and the row of names goes ragged.
+
+   Centre rather than bottom-align: these marks differ in height (30/44/66px)
+   and share no common baseline, so sitting them on one only lines up their
+   bottom edges while their optical centres stay scattered. */
+.exp-logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 66px;
+  margin-bottom: 14px;
+}
+
+.exp-logo-row .exp-logo {
+  margin-bottom: 0;
+}
+
+/* Plain text, not a link. Colour is set explicitly rather than left to inherit
+   so it stays black if these ever become <a> again -- blue on something that
+   does not navigate reads as a broken link. */
+.exp-org {
+  font-weight: 700;
+  font-size: 15px;
+  color: #000;
+  margin-bottom: 3px;
+}
+
+.exp-date {
+  color: #999;
 }
 
 .news {
@@ -195,10 +262,6 @@ h2 {
   -webkit-transition: opacity .2s ease-in-out;
 }
 
-span.highlight {
-  background-color: #ffffd0;
-}
-
 .colored-box {
     color: black;
     padding: 20px;
@@ -231,6 +294,22 @@ span.highlight {
 
   .name {
     font-size: 26px;
+  }
+
+  /* Three columns at phone width leave ~100px each, which breaks every org
+     name across three lines. Stack them, and move the divider to the top edge
+     so it still separates one entry from the next. */
+  .experience {
+    display: block;
+  }
+
+  .exp {
+    padding: 14px 0;
+  }
+
+  .exp + .exp {
+    border-left: 0;
+    border-top: 1px solid #e7e7e7;
   }
 
   .colored-box {
