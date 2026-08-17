@@ -163,10 +163,40 @@
                One .pub block per paper, in the order they appear on the CV.
                `*` after an author marks equal contribution.
 
-               The thumbnail row templates the site started with were dropped
-               here -- there are no per-paper images, and 15 grey placeholders
-               read worse than a clean list. `git show 3f99e92:index.html`
-               brings them back if a paper ever gets a figure worth showing.
+               Every entry opens with a .pub-thumb slot for a figure from the
+               work. Left empty it holds the space as a faint dashed frame; to
+               fill one, put the image inside the slot:
+
+                 <div class="pub-thumb"><img src="images/pubs/mlm-teaser.png" alt="..." width="700" height="439" loading="lazy"></div>
+
+               The slot must stay written as one piece, <div ...></div> with
+               nothing between the halves -- a stray newline is a text node and
+               older engines then stop treating it as empty, which loses the
+               placeholder. An HTML comment inside is safe; comments never
+               count.
+
+               Figures are shown whole, never cropped, and never taller than
+               the entry's own text: the slot is a fixed-width box that
+               stretches to the height of the text beside it, and the figure
+               settles at the largest size that fits inside. Wide ones fill the
+               width and can end up a 46px strip; a near-square one fills the
+               height instead and sits narrower than the column. Give every
+               <img> its true width and height attributes so the browser knows
+               the proportions before the file arrives -- the row height never
+               depends on the figure, so one loading late cannot shift the text
+               under the reader.
+
+               On the images: keep them in images/pubs/, named after the paper,
+               and put a WEB COPY there rather than the figure straight out of
+               the paper. Around 700px wide and under ~150KB is the target --
+               plenty for a 150px slot on a retina panel, with room to widen
+               --pub-thumb-w later. Diagrams and line art shrink best as
+               256-colour PNG, renders and photographs as JPEG; encode both ways
+               and keep the smaller file. Flatten transparency onto white, since
+               the slot has no background of its own, and convert anything a
+               browser cannot show in an <img> -- a PDF figure has to be
+               rasterised first (pdftoppm -png -r 150). A thumbnail can also be
+               wrapped in an <a> pointing at the paper's project page.
                ============================================================ -->
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
@@ -174,89 +204,134 @@
                 <h2 class="section-title">Publications</h2>
                 <div class="pubs">
                   <div class="pub">
-                    <div class="pub-title">Enabling Robust Cloth Manipulation via Inference-Time Simulator-in-the-Loop Refinement</div>
-                    <div class="pub-authors"><strong>X. Liu</strong>*, Y. Li*, Z. Li, P. Jing, Z. Huang, B. Zhou, Z. Zeng, S. Luo, C. Qi, F. Shi</div>
-                    <div class="pub-venue">2026</div>
-                    <div class="pub-links"><a href="https://silr-cloth.github.io/">website</a> / <a href="https://arxiv.org/abs/2606.24552">paper</a></div>
+                    <div class="pub-thumb"><img src="images/pubs/silr-cloth.png" alt="Simulator-in-the-loop cloth manipulation pipeline" width="700" height="382" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title">Enabling Robust Cloth Manipulation via Inference-Time Simulator-in-the-Loop Refinement</div>
+                      <div class="pub-authors"><strong>Xin Liu</strong>*, Yulin Li*, Ziming Li, Pengyu Jing, Zhenhao Huang, Bingyang Zhou, Ziqiu Zeng, Siyuan Luo, Chenkun Qi, Fan Shi</div>
+                      <div class="pub-venue">arXiv, 2026</div>
+                      <div class="pub-links"><a href="https://silr-cloth.github.io/">project page</a> / <a href="https://arxiv.org/abs/2606.24552">paper</a></div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title"><strong>FLASH</strong>: Fast Learning via GPU-Accelerated Simulation for High-Fidelity Deformable Manipulation in Minutes</div>
-                    <div class="pub-authors">S. Luo*, B. Zhou*, C. Zhang*, <strong>X. Liu</strong>, Z. Huang, G. Yang, Z. Han, X. Hu, E. Yang, R. Yu, Z. Zeng, F. Shi</div>
-                    <div class="pub-venue">2026</div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2604.17513">paper</a></div>
+                    <div class="pub-thumb"><img src="images/pubs/flash.jpg" alt="Thousands of deformable-manipulation environments simulated in parallel" width="700" height="268" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title"><strong>FLASH</strong>: Fast Learning via GPU-Accelerated Simulation for High-Fidelity Deformable Manipulation in Minutes</div>
+                      <div class="pub-authors">Siyuan Luo*, Bingyang Zhou*, Chong Zhang*, <strong>Xin Liu</strong>, Zhenhao Huang, Gang Yang, Zhengtao Han, Xiaotian Hu, Eric Yang, Rymon Yu, Ziqiu Zeng, Fan Shi</div>
+                      <div class="pub-venue">arXiv, 2026</div>
+                      <div class="pub-links"><a href="https://arxiv.org/abs/2604.17513">paper</a></div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title"><strong>MLM</strong>: Learning Multi-task Loco-Manipulation Whole-Body Control for Quadruped Robot with Arm</div>
-                    <div class="pub-authors"><strong>X. Liu</strong>, B. Ma, C. Qi, Y. Ding et al.</div>
-                    <div class="pub-venue"><em>IEEE Robotics and Automation Letters (RA-L)</em>, 2026</div>
-                    <div class="pub-links"><a href="https://www.bilibili.com/video/BV1AVbJz7EMN/">video</a> / <a href="https://arxiv.org/abs/2508.10538">paper</a></div>
+                    <div class="pub-thumb"><img src="images/pubs/mlm-teaser.png" alt="Whole-body loco-manipulation policy training and deployment pipeline" width="700" height="439" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title"><strong>MLM</strong>: Learning Multi-task Loco-Manipulation Whole-Body Control for Quadruped Robot with Arm</div>
+                      <div class="pub-authors"><strong>Xin Liu</strong>, Bida Ma, Chenkun Qi, Yan Ding, Nuo Xu, Zhaxizhuoma, Guorong Zhang, Pengan Chen, Kehui Liu, Zhongjie Jia, Chuyue Guan, Yule Mo, Jiaqi Liu, Feng Gao, Jiangwei Zhong, Bin Zhao, Xuelong Li</div>
+                      <div class="pub-venue"><em>IEEE Robotics and Automation Letters (RA-L)</em>, 2026</div>
+                      <div class="pub-links"><a href="https://www.youtube.com/watch?v=p02whFWj1YE&t=8s">video</a> / <a href="https://arxiv.org/abs/2508.10538">paper</a></div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title">Skill latent space based multi-gait learning for a legged robot</div>
-                    <div class="pub-authors"><strong>X. Liu</strong>*, J. Z. Wu*, Y. F. Xue, C. K. Qi, G. Y. Xin, and F. Gao</div>
-                    <div class="pub-venue"><em>IEEE Transactions on Industrial Electronics (TIE)</em>, 2025</div>
-                    <div class="pub-links"><a href="https://www.youtube.com/watch?v=nCwMzwC316M">video</a> / <a href="https://ieeexplore.ieee.org/document/10612828">paper</a></div>
+                    <div class="pub-thumb"><img src="images/pubs/skill-latent.png" alt="Skill latent space and the quadruped gaits it produces over complex terrain" width="700" height="378" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title">Skill latent space based multi-gait learning for a legged robot</div>
+                      <div class="pub-authors"><strong>Xin Liu</strong>*, Jinze Wu*, Yufei Xue, Chenkun Qi, Guiyang Xin, and Feng Gao</div>
+                      <div class="pub-venue"><em>IEEE Transactions on Industrial Electronics (TIE)</em>, 2025</div>
+                      <div class="pub-links"><a href="https://www.youtube.com/watch?v=nCwMzwC316M">video</a> / <a href="https://ieeexplore.ieee.org/document/10612828">paper</a></div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title">Learning natural and robust hexapod locomotion over complex terrains via motion priors based on deep reinforcement learning</div>
-                    <div class="pub-authors"><strong>X. Liu</strong>, J. Z. Wu, Y. H. Li, C. K. Qi, Y. F. Xue, and F. Gao</div>
-                    <div class="pub-venue"><em>IROS</em>, 2025</div>
-                    <div class="pub-links"><a href="https://www.youtube.com/watch?v=ZpLelZVmxHQ">video</a> / <a href="https://arxiv.org/abs/2511.03167">paper</a></div>
+                    <div class="pub-thumb"><img src="images/pubs/hexapod-priors.png" alt="Motion-prior training framework and hexapod gaits across six terrains" width="700" height="447" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title">Learning natural and robust hexapod locomotion over complex terrains via motion priors based on deep reinforcement learning</div>
+                      <div class="pub-authors"><strong>Xin Liu</strong>, Jinze Wu, Yinghui Li, Chenkun Qi, Yufei Xue, and Feng Gao</div>
+                      <div class="pub-venue"><em>IROS</em>, 2025</div>
+                      <div class="pub-links"><a href="https://www.youtube.com/watch?v=ZpLelZVmxHQ">video</a> / <a href="https://arxiv.org/abs/2511.03167">paper</a></div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title"><strong>FastUMI</strong>: A Scalable and Hardware-Independent Universal Manipulation Interface with Dataset</div>
-                    <div class="pub-authors">Zhaxizhuoma*, K. Liu*, C. Guan*, Z. Jia*, Z. Wu*, <strong>X. Liu</strong>*, T. Wang, S. Liang, P. Chen et al.</div>
-                    <div class="pub-venue"><em>CoRL</em>, 2025</div>
-                    <div class="pub-links"><a href="https://fastumi.com/">website</a> / <a href="https://arxiv.org/abs/2409.19499">paper</a></div>
+                    <div class="pub-thumb"><img src="images/pubs/fastumi-teaser.jpg" alt="FastUMI handheld data-collection rig and its robot-arm counterparts" width="700" height="309" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title"><strong>FastUMI</strong>: A Scalable and Hardware-Independent Universal Manipulation Interface with Dataset</div>
+                      <div class="pub-authors">Zhaxizhuoma*, Kehui Liu*, Chuyue Guan*, Zhongjie Jia*, Ziniu Wu*, <strong>Xin Liu</strong>*, Tianyu Wang, Shuai Liang, Pengan Chen, Pingrui Zhang, Haoming Song, Delin Qu, Dong Wang, Zhigang Wang, Nieqing Cao, Yan Ding, Bin Zhao, Xuelong Li</div>
+                      <div class="pub-venue"><em>CoRL</em>, 2025</div>
+                      <div class="pub-links"><a href="https://fastumi.com/">project page</a> / <a href="https://arxiv.org/abs/2409.19499">paper</a></div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title"><strong>FastUMI-100K</strong>: Advancing Data-driven Robotic Manipulation with a Large-scale UMI-style Dataset</div>
-                    <div class="pub-authors">K. Liu, Z. Jia, Y. Li, P. Chen, S. Liu, <strong>X. Liu</strong>, P. Zhang, H. Song et al.</div>
-                    <div class="pub-venue">2025</div>
+                    <div class="pub-thumb"><img src="images/pubs/fastumi-100k.png" alt="Overview of the FastUMI-100K dataset and the tasks it covers" width="700" height="371" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title"><strong>FastUMI-100K</strong>: Advancing Data-driven Robotic Manipulation with a Large-scale UMI-style Dataset</div>
+                      <div class="pub-authors">Kehui Liu, Zhongjie Jia, Yang Li, Zhaxizhuoma, Pengan Chen, Song Liu, <strong>Xin Liu</strong>, Pingrui Zhang, Haoming Song, Xinyi Ye, Nieqing Cao, Zhigang Wang, Jia Zeng, Dong Wang, Yan Ding, Bin Zhao, Xuelong Li</div>
+                      <div class="pub-venue">arXiv, 2025</div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title"><strong>PPL</strong>: Point Cloud Supervised Proprioceptive Locomotion Reinforcement Learning for Legged Robots in Crawl Spaces</div>
-                    <div class="pub-authors">B. Ma, N. Xu, C. Qi, <strong>X. Liu</strong>, Y. Mo, J. Wang, and C. Lu</div>
-                    <div class="pub-venue"><em>IEEE Robotics and Automation Letters (RA-L)</em>, 2026</div>
-                    <div class="pub-links"><a href="https://www.bilibili.com/video/BV1gmbvzuEuW/">video</a> / <a href="https://arxiv.org/abs/2508.09950">paper</a></div>
+                    <div class="pub-thumb"><img src="images/pubs/ppl-teaser.png" alt="Point-cloud supervised locomotion policy in simulation and on hardware" width="700" height="334" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title"><strong>PPL</strong>: Point Cloud Supervised Proprioceptive Locomotion Reinforcement Learning for Legged Robots in Crawl Spaces</div>
+                      <div class="pub-authors">Bida Ma, Nuo Xu, Chenkun Qi, <strong>Xin Liu</strong>, Yule Mo, Jinkai Wang, Chunpeng Lu</div>
+                      <div class="pub-venue"><em>IEEE Robotics and Automation Letters (RA-L)</em>, 2026</div>
+                      <div class="pub-links"><a href="https://www.bilibili.com/video/BV1gmbvzuEuW/">video</a> / <a href="https://arxiv.org/abs/2508.09950">paper</a></div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title">Experience-Learning Inspired Two-Step Reward Method for Efficient Legged Locomotion Learning towards Natural and Robust Gaits</div>
-                    <div class="pub-authors">Y. H. Li, J. Z. Wu, <strong>X. Liu</strong>, W. Z. Guo, and Y. F. Xue</div>
-                    <div class="pub-venue"><em>IROS</em>, 2024</div>
-                    <div class="pub-links"><a href="https://arxiv.org/abs/2401.12389">paper</a></div>
+                    <div class="pub-thumb"><img src="images/pubs/two-step-reward.png" alt="Two-step reward learning scheme and the gaits learned from it" width="700" height="455" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title">Experience-Learning Inspired Two-Step Reward Method for Efficient Legged Locomotion Learning towards Natural and Robust Gaits</div>
+                      <div class="pub-authors">Yinghui Li, Jinze Wu, <strong>Xin Liu</strong>, Weizhong Guo, and Yufei Xue</div>
+                      <div class="pub-venue"><em>IROS</em>, 2024</div>
+                      <div class="pub-links"><a href="https://arxiv.org/abs/2401.12389">paper</a></div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title">Learning Graphic Convolutional Network Based Quadruped Locomotion on Complex Terrain</div>
-                    <div class="pub-authors">X. Li, A. Li, <strong>X. Liu</strong>, Y. Xue, X. Xu, C. Qi</div>
-                    <div class="pub-venue"><em>CAC</em>, 2024</div>
+                    <div class="pub-thumb"><img src="images/pubs/gcn-locomotion.jpg" alt="Graph-convolution actor-critic architecture for quadruped locomotion" width="700" height="214" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title">Learning Graphic Convolutional Network Based Quadruped Locomotion on Complex Terrain</div>
+                      <div class="pub-authors">Xiaoyu Li, Ang Li, <strong>Xin Liu</strong>, Yufei Xue, Xin Xu, Chenkun Qi</div>
+                      <div class="pub-venue"><em>CAC</em>, 2024</div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title">A Motion-Adaptive Parallax-Based Monocular Visual Odometry</div>
-                    <div class="pub-authors">Z. Xu, <strong>X. Liu</strong>, C. Qi</div>
-                    <div class="pub-venue"><em>CCC</em>, 2023</div>
+                    <div class="pub-thumb"><img src="images/pubs/parallax-vo.jpg" alt="Parallax-based monocular visual odometry pipeline" width="700" height="234" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title">A Motion-Adaptive Parallax-Based Monocular Visual Odometry</div>
+                      <div class="pub-authors">Zhaohui Xu, <strong>Xin Liu</strong>, Chenkun Qi</div>
+                      <div class="pub-venue"><em>CCC</em>, 2023</div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title">An actuation acceleration based kinematic modeling and parameter identification approach for a six-DOF 6-PSU parallel robot with joint clearances</div>
-                    <div class="pub-authors"><strong>X. Liu</strong>, C. K. Qi, J. F. Lin, D. J. Li, and F. Gao</div>
-                    <div class="pub-venue"><em>ASME Journal of Mechanisms and Robotics (ASME JMR)</em>, 2025</div>
+                    <div class="pub-thumb"><img src="images/pubs/actuation-6psu.jpg" alt="Iterative parameter identification loop for the 6-PSU parallel robot" width="700" height="355" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title">An actuation acceleration based kinematic modeling and parameter identification approach for a six-DOF 6-PSU parallel robot with joint clearances</div>
+                      <div class="pub-authors"><strong>Xin Liu</strong>, Chenkun Qi, Jianfeng Lin, Dongjin Li, and Feng Gao</div>
+                      <div class="pub-venue"><em>ASME Journal of Mechanisms and Robotics (ASME JMR)</em>, 2025</div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title">Multi-input multi-output sliding mode control with high precision and robustness for a 6-PSU parallel robot</div>
-                    <div class="pub-authors"><strong>X. Liu</strong>, J. F. Lin, D. J. Li, C. K. Qi, and F. Gao</div>
-                    <div class="pub-venue"><em>ICIRA</em>, 2023</div>
+                    <div class="pub-thumb"><img src="images/pubs/smc-6psu.jpg" alt="Sliding-mode control loop driving the 6-PSU parallel robot" width="700" height="263" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title">Multi-input multi-output sliding mode control with high precision and robustness for a 6-PSU parallel robot</div>
+                      <div class="pub-authors"><strong>Xin Liu</strong>, Jianfeng Lin, Dongjin Li, Chenkun Qi, and Feng Gao</div>
+                      <div class="pub-venue"><em>ICIRA</em>, 2023</div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title">Modeling and identification of kinematic model with joint clearance for a 6-PSU parallel manipulator</div>
-                    <div class="pub-authors"><strong>X. Liu</strong>, C. K. Qi, J. F. Lin, D. J. Li, and F. Gao</div>
-                    <div class="pub-venue"><em>CCC</em>, 2023</div>
+                    <div class="pub-thumb"><img src="images/pubs/clearance-6psu.png" alt="Joint-clearance kinematic model of the 6-PSU manipulator" width="550" height="522" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title">Modeling and identification of kinematic model with joint clearance for a 6-PSU parallel manipulator</div>
+                      <div class="pub-authors"><strong>Xin Liu</strong>, Chenkun Qi, Jianfeng Lin, Dongjin Li, and Feng Gao</div>
+                      <div class="pub-venue"><em>CCC</em>, 2023</div>
+                    </div>
                   </div>
                   <div class="pub">
-                    <div class="pub-title">A modeling method for a 6-SPS perpendicular parallel micro-manipulation robot considering the motion in multiple nonfunctional directions and nonlinear hysteresis</div>
-                    <div class="pub-authors">C. K. Qi, J. F. Lin, <strong>X. Liu</strong>, F. Gao, Y. Yue, Y. Hu, and B. C. Wei</div>
-                    <div class="pub-venue"><em>Journal of Mechanical Design, vol. 145, no. 5, pp. 053301</em>, 2023</div>
+                    <div class="pub-thumb"><img src="images/pubs/hysteresis-6sps.png" alt="Hybrid model of the 6-SPS compliant micro robot and its piezoelectric hysteresis" width="700" height="538" loading="lazy"></div>
+                    <div class="pub-body">
+                      <div class="pub-title">A modeling method for a 6-SPS perpendicular parallel micro-manipulation robot considering the motion in multiple nonfunctional directions and nonlinear hysteresis</div>
+                      <div class="pub-authors">Chenkun Qi, Jianfeng Lin, <strong>Xin Liu</strong>, Feng Gao, Yi Yue, Yan Hu, and Baochen Wei</div>
+                      <div class="pub-venue"><em>Journal of Mechanical Design, vol. 145, no. 5, pp. 053301</em>, 2023</div>
+                    </div>
                   </div>
-</div>
+                </div>
                 <p class="pub-note">* denotes equal contribution.</p>
               </td>
             </tr>

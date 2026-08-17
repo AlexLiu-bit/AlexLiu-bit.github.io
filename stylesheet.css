@@ -132,15 +132,86 @@ h2 {
   color: #999;
 }
 
-/* Publications. Four stacked lines per entry -- title, authors, venue, links --
-   with the gap between entries larger than any gap inside one, so the list
-   groups by eye without needing rules or bullets to separate the entries. */
+/* Publications. Each entry is a thumbnail of the work on the left and four
+   stacked lines on the right -- title, authors, venue, links -- with the gap
+   between entries larger than any gap inside one, so the list groups by eye
+   without needing rules or bullets to separate the entries.
+
+   Figures are shown WHOLE -- nothing is cropped -- inside a box that is
+   var(--pub-thumb-w) wide and no taller than the entry's own text. Teaser
+   figures run anywhere from square to 3:1, so each one settles on whichever of
+   the two limits it meets first: the wide ones fill the width, the tall ones
+   fill the height and sit narrower than the column. What stays constant is the
+   left edge and where the text starts, which is what makes it read as a column.
+
+     --pub-thumb-w   width of the thumbnail, and the width of the empty
+                     placeholder. The text takes whatever is left, so widening
+                     this narrows the text. */
+:root {
+  --pub-thumb-w: 150px;
+}
+
 .pubs {
   margin-top: 2px;
 }
 
 .pub {
-  margin-bottom: 17px;
+  display: flex;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+/* The height of a row is the text's business alone. This slot stretches to
+   whatever the text next to it occupies, and holds NO height of its own --
+   which is the whole trick, since a slot sized by its image could only push
+   the row taller, never fit inside it.
+
+   flex:none -- with the default 1 1 auto a long author list would win the
+   argument over space and squeeze the thumbnail narrower on the busier rows.
+   border-box keeps the empty slot's 1px frame from making it 2px wider than a
+   filled one. */
+.pub-thumb {
+  flex: none;
+  align-self: stretch;
+  box-sizing: border-box;
+  position: relative;
+  width: var(--pub-thumb-w);
+}
+
+/* Out of flow, so the figure cannot contribute to the row height it is being
+   measured against -- take this away and the sizing goes circular, the image
+   making the row taller which lets the image grow.
+
+   inset:0 + margin:auto centres it in the box; max-width/max-height cap it at
+   the box while width/height:auto keep the proportions, so the figure lands
+   fully visible at the largest size that fits. No object-fit anywhere: contain
+   would letterbox, cover would crop. */
+.pub-thumb img {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+}
+
+/* The empty slot, drawn as a faint dashed frame so a paper still waiting for a
+   figure reads as "to fill" rather than as a broken image. Nothing inside to
+   stretch it, so it takes the row height from the text like everything else.
+   :empty stops matching the moment an <img> goes in, so this rule costs nothing
+   once the list is filled -- and deleting it leaves the space simply blank. */
+.pub-thumb:empty {
+  background: #fafafa;
+  border: 1px dashed #e2e2e2;
+  border-radius: 4px;
+}
+
+/* min-width:0 -- a flex item refuses to shrink past min-content otherwise, so
+   one long unbroken title or url would push the row wider than the page. */
+.pub-body {
+  min-width: 0;
 }
 
 .pub-title {
@@ -261,14 +332,31 @@ h2 {
   top: var(--portrait-offset);
 }
 
-/* Narrow screens. Without this the fixed 160px thumbnails squeeze the text
-   column of each publication row down to roughly 45% of the viewport, leaving
-   4-5 words per line. Shrinks the thumbnails and tightens the inline padding
-   (hence !important -- the padding is set inline on every <td>).
+/* Narrow screens. Shrinks the publication thumbnails and tightens the inline
+   padding (hence !important -- the padding is set inline on every <td>).
    Nothing here applies above 600px, so the desktop layout is unchanged. */
 @media (max-width: 600px) {
   td {
     padding: 8px !important;
+  }
+
+  /* A 150px thumbnail eats close to half a phone screen, which leaves the
+     title breaking after three or four words. */
+  :root {
+    --pub-thumb-w: 96px;
+  }
+
+  .pub {
+    gap: 12px;
+  }
+
+  /* Pinned to the top of the slot rather than centred in it. The text runs two
+     to three times as tall here as on a laptop, so the height cap almost never
+     bites, and a short figure centred against ten lines of authors reads as
+     floating loose in the margin. bottom:auto is what releases the centring;
+     margin:auto still centres it across the width. */
+  .pub-thumb img {
+    inset: 0 0 auto;
   }
 
   .name {
